@@ -1,26 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//   document.querySelector('.task-title').onkeyup = () => {
-//     if (document.querySelector('.task-title').value.length > 0) {
-//       document.querySelector('.add-button').disabled = false;
-//     } else {
-//       document.querySelector('.add-button').disabled = true;
-//     }
-//   }
-//
-//   document.querySelector('.add-button').onclick = () => {
-//     const newTask = document.querySelector('.task-title').value;
-//
-//     const li = document.createElement('li');
-//     li.className = 'task-list_item';
-//     li.innerHTML = newTask;
-//     document.querySelector('.task-list').append(li);
-//
-//     document.querySelector('.task-title').value = '';
-//     document.querySelector('.add-button').disabled = true;
-//   }
-// }
-// )
-
 let taskListElement, taskTitleElement, addButton;
 
 document.addEventListener('DOMContentLoaded', ready);
