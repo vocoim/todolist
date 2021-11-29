@@ -3,19 +3,34 @@ let taskListElement, taskTitleElement, addButton;
 document.addEventListener('DOMContentLoaded', ready);
 
 function ready() {
-  taskListElement = document.querySelector('.task-list');
-  taskTitleElement = document.querySelector('.task-title');
-  addButton = document.querySelector('.add-button');
+    taskListElement = document.querySelector('.task-list');
+    taskTitleElement = document.querySelector('.task-title');
+    addButton = document.querySelector('.add-button');
 
-  taskTitleElement.addEventListener('change', clickAddButton);
-  addButton.addEventListener('click', addNewTask);
+    taskTitleElement.addEventListener('keyup', taskKeyupHandler);
+    addButton.addEventListener('click', addNewTask);
 }
 
-function clickAddButton() {
-  addButton.disabled = !taskTitleElement.value.length;
+function taskKeyupHandler(event) {
+    clickEnter(event);
+    addButtonDisabling();
+}
+
+function clickEnter(event) {
+    if (event.keyCode === 13) {
+        addNewTask();
+    }
+}
+
+function addButtonDisabling() {
+    addButton.disabled = !taskTitleElement.value.length;
 }
 
 function addNewTask() {
+    if (!taskTitleElement.value.length) {
+        return;
+    }
+
     const li = document.createElement('li');
     li.className = 'task-list_item';
     li.innerHTML = taskTitleElement.value;
