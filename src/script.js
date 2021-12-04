@@ -1,14 +1,21 @@
-let taskListElement, taskTitleElement, addButton;
+let navElements, elements;
 
 document.addEventListener('DOMContentLoaded', ready);
 
 function ready() {
+    navElements = document.querySelectorAll('.navbar-item');
+    elements = document.querySelectorAll('.new-task_item');
+
     taskListElement = document.querySelector('.task-list');
     taskTitleElement = document.querySelector('.task-title');
     addButton = document.querySelector('.add-button');
 
+
     taskTitleElement.addEventListener('keyup', taskKeyupHandler);
     addButton.addEventListener('click', addNewTask);
+
+    activateNavElement();
+    changeNavElement(0)
 }
 
 function taskKeyupHandler(event) {
@@ -38,6 +45,30 @@ function addNewTask() {
 
     taskTitleElement.value = '';
     addButton.disabled = true;
+}
+
+function activateNavElement() {
+    navElements.forEach((item, index) => {
+        item.addEventListener('click', () => changeNavElement(index));
+    });
+}
+
+function changeNavElement(index) {
+    for (let item of navElements) {
+        item.classList.remove('active');
+    }
+    navElements[index].classList.add('active');
+    showSection(navElements[index].dataset.type);
+}
+
+function showSection(type) {
+    elements.forEach(element => {
+        if (element.dataset.type !== type) {
+            element.classList.add('hidden')
+        } else {
+            element.classList.remove('hidden');
+        }
+    })
 }
 
 

@@ -13,24 +13,65 @@
 </head>
 <body>
 <header class="wrapper">
-        <h1> to do list </h1>
+    <h1> to do list </h1>
 </header>
 <main class="wrapper">
-    <div class="navbar">
-        <div class="navbar-item">general</div>
-        <div class="navbar-item">personal</div>
-        <div class="navbar-item">business</div>
-        <div class="navbar-item">done</div>
+    <div class="tab-bar">
+        <div class="navbar">
+            <div class="navbar-item" data-type="general">general</div>
+            <div class="navbar-item" data-type="personal">personal</div>
+            <div class="navbar-item" data-type="business">business</div>
+            <div class="navbar-item" data-type="done">done</div>
+        </div>
+        <div class="new-task">
+            <div class="new-task_item" data-type="general">
+                <div class="add_new-task">
+                    <input autofocus class="task-title" type="text" placeholder="create task...">
+                    <button class="add-button" disabled>+</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-list_item">
+                        add x delete task / icons on buttons / dark mode / edit task / move to folders / local storage /
+                        ask
+                        name
+                    </li>
+                </ul>
+            </div>
+            <div class="new-task_item" data-type="personal">
+                <div class="add_new-task">
+                    <input autofocus class="task-title" type="text" placeholder="create task...">
+                    <button class="add-button" disabled>+</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-list_item">
+                        second personal
+                    </li>
+                </ul>
+            </div>
+            <div class="new-task_item" data-type="business">
+                <div class="add_new-task">
+                    <input autofocus class="task-title" type="text" placeholder="create task...">
+                    <button class="add-button" disabled>+</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-list_item">
+                        bisuness
+                    </li>
+                </ul>
+            </div>
+            <div class="new-task_item" data-type="done">
+                <div class="add_new-task">
+                    <input autofocus class="task-title" type="text" placeholder="create task...">
+                    <button class="add-button" disabled>+</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-list_item">
+                        done
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="task-add">
-        <input autofocus class="task-title" type="text" placeholder="create task...">
-        <button class="add-button" disabled>+</button>
-    </div>
-    <ul class="task-list">
-        <li class="task-list_item">
-                add x delete task / icons on buttons / dark mode / edit task  / move to folders / local storage / ask name
-        </li>
-    </ul>
 </main>
 <footer class="wrapper footer">
     &copy vocoim 2021
