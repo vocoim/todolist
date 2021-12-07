@@ -6,21 +6,27 @@ function ready() {
     navElements = document.querySelectorAll('.navbar-item');
     elements = document.querySelectorAll('.new-task_item');
 
-    taskListElement = document.querySelector('.task-list');
-    taskTitleElement = document.querySelector('.task-title');
-    addButton = document.querySelector('.add-button');
-
-
-    taskTitleElement.addEventListener('keyup', taskKeyupHandler);
-    addButton.addEventListener('click', addNewTask);
+    a();
 
     activateNavElement();
-    changeNavElement(0)
+    changeNavElement(0);
 }
 
-function taskKeyupHandler(event) {
+function a() {
+
+    const taskTitleElements = document.querySelectorAll('.task-title');
+
+    taskTitleElements.forEach(element => {
+        element.addEventListener('keyup', (event) => taskKeyupHandler(event, element))
+    })
+
+    const addButtons = document.querySelectorAll('.add-button');
+    addButtons.forEach(button => button.addEventListener('click', addNewTask));
+}
+
+function taskKeyupHandler(event, element) {
     clickEnter(event);
-    addButtonDisabling();
+    addButtonDisabling(element);
 }
 
 function clickEnter(event) {
@@ -29,22 +35,29 @@ function clickEnter(event) {
     }
 }
 
-function addButtonDisabling() {
+function addButtonDisabling(taskTitleElement) {
+    const activeTab = [...elements].find(element => !element.classList.contains('hidden'));
+    const addButton = activeTab.querySelector('.add-button');
+
     addButton.disabled = !taskTitleElement.value.length;
 }
 
 function addNewTask() {
+    const activeTab = [...elements].find(element => !element.classList.contains('hidden'));
+    const taskTitleElement = activeTab.querySelector('.task-title');
+    const button = activeTab.querySelector('.add-button');
+
     if (!taskTitleElement.value.length) {
         return;
     }
-
+    const taskListElement = activeTab.querySelector('.task-list');
     const li = document.createElement('li');
     li.className = 'task-list_item';
     li.innerHTML = taskTitleElement.value;
     taskListElement.append(li);
 
     taskTitleElement.value = '';
-    addButton.disabled = true;
+    button.disabled = true;
 }
 
 function activateNavElement() {

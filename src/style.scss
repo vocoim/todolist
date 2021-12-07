@@ -50,7 +50,7 @@ body {
           padding: 30px;
           color: #ffffff;
           text-shadow: 1px 1px 1px #343aa3;
-          background-color: #7295f6;
+          background: linear-gradient(#7295f6, #99b1f1);
           box-shadow: 2px 2px 2px #85a2f6;
           font-size: 25px;
           font-weight: 700;
@@ -58,15 +58,15 @@ body {
           text-align: center;
 
           &:hover {
-            background-color: #ffffff;
+            background: linear-gradient(#7295f6, #ffffff);
             color: #85a2f6;
             box-shadow: 2px 2px 2px #85a2f6;
             transition-duration: 0.5s;
           }
 
           &.active {
-              color: red;
-              background-color: red;
+            color: #ffffff;
+            background: linear-gradient(#343aa3, #85a2f6);
           }
         }
       }
@@ -131,13 +131,33 @@ body {
 
           .task-list_item {
             height: 100%;
+            width: 100%;
             padding: 10px;
             background-color: #dce8ff;
             border-radius: 15px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             margin: 10px;
-            box-shadow: 2px 2px 2px #85a2f6;;
+            box-shadow: 2px 2px 2px #85a2f6;
+
+            .checkbox {
+              margin: 15px;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #112262;
+              border-radius: 50px;
+            }
+
+            .title:focus {
+                outline: none;
+              }
+            
+            .btn-close {
+              width: 20px;
+              padding: 15px;
+              opacity: 1;
+            }
           }
         }
       }
@@ -146,8 +166,10 @@ body {
 
   .footer {
     text-align: center;
-    color: #ffffff;
-    background-color: #112262;
+    color: #112262;
+    background-color: transparent;
+    border: 1px solid #112262;
   }
 }
+
 
